@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import net.minidev.json.JSONObject;
 
 import java.text.ParseException;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path="/canteen")
@@ -28,10 +30,18 @@ public class CanteenController {
         return canteenService.findAll();
     }
 
-//    @PutMapping(path = "/edit")
-//    @ResponseStatus(HttpStatus.OK)
-//    public void updateCafeteria(CafeteriaDTO cafeteriaDTO) throws ParseException {
-//        Cafeteria cafeteria = CafeteriaConverter.convertToEntity(cafeteriaDTO);
-//        cafeteriaService.save(cafeteria);
-//    }
+    @PutMapping(path = "/edit")
+    @ResponseStatus(HttpStatus.OK)
+    public void updateCanteen(@RequestBody Canteen canteen) throws ParseException {
+        canteenService.save(canteen);
+    }
+
+    @DeleteMapping(path = "/delete/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteCanteen(@PathVariable Long id) {
+        Optional<Canteen> canteen = canteenService.findById(id);
+        if (!canteen.isEmpty())
+            canteenService.delete(id);
+    }
+
 }

@@ -6,6 +6,7 @@ import com.upbCanteen.backend.repository.CanteenRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CanteenService {
@@ -19,11 +20,13 @@ public class CanteenService {
         canteenRepository.save(canteen);
     }
 
-    public void delete(Canteen canteen) {
-        canteenRepository.delete(canteen);
+    public void delete(Long id) {
+        canteenRepository.deleteById(id);
     }
 
     public List<CanteenAdminView> findAll() {
         return canteenRepository.findAllBy();
     }
+
+    public Optional<Canteen> findById(Long id) { return canteenRepository.findById(id);}
 }

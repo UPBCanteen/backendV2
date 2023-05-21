@@ -1,8 +1,11 @@
 package com.upbCanteen.backend.service;
 
 import com.upbCanteen.backend.model.Canteen;
+import com.upbCanteen.backend.projection.CanteenAdminView;
 import com.upbCanteen.backend.repository.CanteenRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CanteenService {
@@ -18,5 +21,9 @@ public class CanteenService {
 
     public void delete(Canteen canteen) {
         canteenRepository.delete(canteen);
+    }
+
+    public List<CanteenAdminView> findAll() {
+        return canteenRepository.findAllBy();
     }
 }

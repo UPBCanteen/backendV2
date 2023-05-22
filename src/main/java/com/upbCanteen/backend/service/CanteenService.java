@@ -29,4 +29,6 @@ public class CanteenService {
     }
 
     public Optional<Canteen> findById(Long id) { return canteenRepository.findById(id);}
+
+    public Optional<Canteen> findByName(String name) { return canteenRepository.findByName(name);}
 }

@@ -13,4 +13,6 @@ public interface CanteenRepository extends JpaRepository<Canteen, Long> {
 
     @Override
     void deleteById(Long aLong);
+
+    Optional<Canteen> findByName(String name);
 }

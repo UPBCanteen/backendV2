@@ -23,7 +23,16 @@ public class Meal {
     private Long quantity;
 
     @Column(name = "remain_quantity")
-    private Long remain_quantity;
+    private Long remainQuantity;
+
+    @Column(name = "price")
+    private Long price;
+
+    @Column(name = "unit")
+    private String unit;
+
+    @Column(name = "image")
+    private String image;
 
     @OneToMany(mappedBy = "meal", cascade = CascadeType.PERSIST)
     private Set<MealQuantity> mealQuantities = new HashSet<>();
@@ -55,6 +64,14 @@ public class Meal {
         this.name = name;
     }
 
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
     public Long getQuantity() {
         return quantity;
     }
@@ -63,12 +80,28 @@ public class Meal {
         this.quantity = quantity;
     }
 
-    public Long getRemain_quantity() {
-        return remain_quantity;
+    public Long getPrice() {
+        return price;
     }
 
-    public void setRemain_quantity(Long remain_quantity) {
-        this.remain_quantity = remain_quantity;
+    public void setPrice(Long price) {
+        this.price = price;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public Long getRemainQuantity() {
+        return remainQuantity;
+    }
+
+    public void setRemainQuantity(Long remainQuantity) {
+        this.remainQuantity = remainQuantity;
     }
 
     public Set<MealQuantity> getMealQuantities() {

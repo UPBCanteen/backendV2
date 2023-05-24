@@ -29,4 +29,8 @@ public class MealService {
     public List<MealCanteenView> findAllByCanteen(Canteen canteen) {
         return mealRepository.findAllByCanteen(canteen);
     }
+
+    public Meal getMealById(Long id){
+        return mealRepository.findById(id).orElse(null);
+    }
 }

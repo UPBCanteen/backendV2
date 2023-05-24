@@ -20,13 +20,13 @@ public class Meal {
     private String name;
 
     @Column(name = "quantity")
-    private Long quantity;
+    private Float quantity;
 
     @Column(name = "remain_quantity")
     private Long remainQuantity;
 
     @Column(name = "price")
-    private Long price;
+    private Float price;
 
     @Column(name = "unit")
     private String unit;
@@ -72,19 +72,19 @@ public class Meal {
         this.unit = unit;
     }
 
-    public Long getQuantity() {
+    public Float getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Long quantity) {
+    public void setQuantity(Float quantity) {
         this.quantity = quantity;
     }
 
-    public Long getPrice() {
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(Long price) {
+    public void setPrice(Float price) {
         this.price = price;
     }
 

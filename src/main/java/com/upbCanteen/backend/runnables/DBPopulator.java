@@ -12,6 +12,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -179,21 +180,18 @@ public class DBPopulator implements CommandLineRunner {
 //                menu5.setCafeteria(cafeteria);
 //                menu5.setDay(DayOfWeek.FRIDAY);
 
-//                for (int j = 0; j < MEnamesFelul1.size(); j++) {
-//                    MenuElement menuElement = new MenuElement();
-//                    menuElement.setType(felul1);
-//                    menuElement.setName(MEnamesFelul1.get(j));
-//                    menuElement.setUnitPrice(MEpricesFelul1.get(j));
-//                    menuElement.setUnitValue(MEunitvalueFelul1.get(j));
-//                    menuElement.setUnitType(MEunittypeFelul1.get(j));
-//                    menuElement.setImageURL(MEimageFelul1.get(j));
-//                    menuElementService.save(menuElement);
-//                    menu1.getMenuElements().add(menuElement);
-//                    menu2.getMenuElements().add(menuElement);
-//                    menu3.getMenuElements().add(menuElement);
-//                    menu4.getMenuElements().add(menuElement);
-//                    menu5.getMenuElements().add(menuElement);
-//                }
+                for (int j = 0; j < MEnamesFelul1.size(); j++) {
+                    Meal menuElement = new Meal();
+
+                    menuElement.setName(MEnamesFelul1.get(j));
+                    menuElement.setCanteen(cafeteria);
+                    menuElement.setImage(MEimageFelul1.get(j));
+                    menuElement.setPrice(MEpricesFelul1.get(j));
+                    menuElement.setQuantity(MEunitvalueFelul1.get(j));
+                    menuElement.setUnit(MEunittypeFelul1.get(j));
+                    menuElementService.save(menuElement);
+
+                }
 //
 //                for (int j = 0; j < MEnamesFelul2.size(); j++) {
 //                    MenuElement menuElement = new MenuElement();

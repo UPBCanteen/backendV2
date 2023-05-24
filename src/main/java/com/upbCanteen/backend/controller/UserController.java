@@ -1,7 +1,11 @@
 package com.upbCanteen.backend.controller;
 
+import com.upbCanteen.backend.dto.UserDTO;
+import com.upbCanteen.backend.dto.UserLoginDTO;
+import com.upbCanteen.backend.dto.convertor.UserConvertor;
 import com.upbCanteen.backend.model.ERole;
 import com.upbCanteen.backend.model.User;
+import com.upbCanteen.backend.projection.UserBarView;
 import com.upbCanteen.backend.service.RoleService;
 import com.upbCanteen.backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.List;
 import java.util.Objects;
 
@@ -20,6 +25,17 @@ public class UserController {
 
     @Autowired
     private RoleService roleService;
+
+
+//        @GetMapping(path = "/login")
+//    public UserDTO getLoginUser(@RequestBody UserLoginDTO userLoginDTO) throws ParseException {
+//        return UserConvertor.convertToDto(UserConvertor.convertUserLoginToEntity(userLoginDTO));
+//    }
+
+    @GetMapping("/getCurrentUser")
+    public UserBarView getCurrentUser(){
+        return userService.getCurrentUser();
+    }
 
     @GetMapping(path="/getUsers")
     public ResponseEntity<?> getAllUsers(){

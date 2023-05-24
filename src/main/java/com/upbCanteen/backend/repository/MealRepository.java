@@ -10,4 +10,6 @@ import java.util.List;
 
 public interface MealRepository extends JpaRepository<Meal, Long> {
     List<MealCanteenView> findAllByCanteen(Canteen canteen);
+
+
 }

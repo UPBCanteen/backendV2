@@ -1,6 +1,7 @@
 package com.upbCanteen.backend.repository;
 
 import com.upbCanteen.backend.model.User;
+import com.upbCanteen.backend.projection.UserBarView;
 import com.upbCanteen.backend.projection.UserView;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -19,5 +20,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByEmail(String email);
 
     Long countUserBy();
+    UserBarView findAllByEmail(String email);
 
 }

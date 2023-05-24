@@ -30,6 +30,16 @@ public class CanteenController {
         return canteenService.findAll();
     }
 
+
+    @GetMapping("/getNumberCanteen")
+    public ResponseEntity<?> getCanteenNr(){
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(canteenService.getNrCanteens());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
+    }
+
     @PutMapping(path = "/edit")
     @ResponseStatus(HttpStatus.OK)
     public void updateCanteen(@RequestBody Canteen canteen) throws ParseException {

@@ -39,4 +39,8 @@ public class UserService {
         else
             return null;
     }
+
+    public Long getUserNr(){
+        return userRepository.countUserBy();
+    }
 }

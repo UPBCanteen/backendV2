@@ -30,6 +30,15 @@ public class UserController {
         }
     }
 
+    @GetMapping(path="/getUserNumber")
+    public ResponseEntity<?> getUserNr(){
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(userService.getUserNr());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
+    }
+
     @PostMapping(path = "/authentication/register")
     public ResponseEntity<?> registerUser(@RequestBody User user) {
 

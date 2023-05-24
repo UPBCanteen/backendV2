@@ -15,4 +15,7 @@ public interface CanteenRepository extends JpaRepository<Canteen, Long> {
     void deleteById(Long aLong);
 
     Optional<Canteen> findByName(String name);
+
+
+    Long countCanteensBy();
 }

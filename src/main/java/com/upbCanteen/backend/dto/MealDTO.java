@@ -11,6 +11,14 @@ public class MealDTO {
     private String unit;
     private String image;
 
+    public MealDTO(String name, Long quantity, Long price, String unit, String image) {
+        this.name = name;
+        this.quantity = quantity;
+        this.price = price;
+        this.unit = unit;
+        this.image = image;
+    }
+
     public String getName() {
         return name;
     }

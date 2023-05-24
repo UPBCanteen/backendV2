@@ -3,6 +3,7 @@ package com.upbCanteen.backend.service;
 import com.upbCanteen.backend.model.Canteen;
 import com.upbCanteen.backend.model.Meal;
 import com.upbCanteen.backend.projection.CanteenAdminView;
+import com.upbCanteen.backend.projection.MealCanteenView;
 import com.upbCanteen.backend.projection.MealView;
 import com.upbCanteen.backend.repository.MealRepository;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,7 @@ public class MealService {
         mealRepository.delete(meal);
     }
 
-    public List<MealView> findAllByCanteen(Canteen canteen) {
+    public List<MealCanteenView> findAllByCanteen(Canteen canteen) {
         return mealRepository.findAllByCanteen(canteen);
     }
 }

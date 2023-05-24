@@ -4,6 +4,12 @@ public class MealCanteenDTO {
     private Long canteenId;
     private MealDTO mealDTO;
 
+
+    public MealCanteenDTO(Long canteenId, MealDTO mealDTO) {
+        this.canteenId = canteenId;
+        this.mealDTO = mealDTO;
+    }
+
     public Long getCanteenId() {
         return canteenId;
     }
